@@ -56,12 +56,16 @@ Desktop.ini
 .mypy_cache/
 
 # ==================================================
-# SECRETS
+# SECRETS / LOCAL CONFIG
 # ==================================================
 *.key
 *.pem
 license.key
 license.dat
+.env
+.env.*
+!.env.example
+supervision-secrets.properties
 
 # ==================================================
 # RELEASES
