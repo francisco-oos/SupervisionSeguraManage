@@ -28,7 +28,22 @@ pip install -r requirements.txt
 python app.py
 ```
 
+## Clave de cifrado
+
+La clave real **no se guarda en Git**. Debe ser la misma que use la app Android.
+
+PowerShell:
+
+```powershell
+$env:SUPERVISION_SEGURA_DATA_KEY = "coloca-aqui-tu-clave-real"
+python app.py
+```
+
+Si no se define la variable, el programa usa `CHANGE_ME_SUPERVISION_SEGURA_DATA_KEY` únicamente como valor genérico de desarrollo. No debe usarse para proteger información real.
+
 ## Compilar EXE
+
+Antes de compilar, define `SUPERVISION_SEGURA_DATA_KEY` en el entorno que construye el ejecutable si esa distribución debe usar una clave concreta.
 
 ```powershell
 pip install pyinstaller
@@ -43,7 +58,7 @@ El sistema guarda tres capas:
 2. JSON cifrado original como evidencia digital.
 3. PDF completo como BLOB.
 
-La clave `DATA_KEY` debe coincidir con la app Android. En producción se recomienda moverla fuera del código fuente.
+La clave de cifrado se obtiene desde el entorno y no forma parte del código fuente.
 
 ## Próximas mejoras
 
